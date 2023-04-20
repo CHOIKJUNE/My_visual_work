@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mem = {num: 1, name: "조익준"}; 
+        let mem2 = mem; // 
+        mem.num = 2;
+        // mem2.num = 2가 출력된다. 왜일까?
+        // mem과 mem2를 객체의 참조변수로 생각해보자. mem2 = mem이라는 것은 객체의 주소를 복사하는 것이다. 
+        // 따라서 mem이 0x100번지의 주소지라면 mem2도 0x100번지의 주소지를 공유하고 mem의 
+        // value값을 바꿔도 mem2도 바뀌게 되는것이다.
+
+        // Array type도 똑같다.
+        let names = ["kim", "park", "cho"];
+        let names2 = names;
+        names2[2] = "choi";
+
+        let f = function() {
+            let animals = ["cat", "dog", "hedgehog"];
+            animals[0] = "cheeta";
+            return animals;
+        };
+        let f2 = f;
+         //안 바뀜. 왜지?
+
+        let members = [
+            {num: 1, name: "김구라", addr: "노량진"},
+            {num: 2, name: "해골", addr: "행신동"},
+            {num: 3, name: "원숭이", addr: "역삼동"}
+        ]; 
+        let members2 = members;
+        members[0].num = 4;
+        members[1].num = 5;
+        members[2].num = 6;
+        
+
+        //members2의 결과는?
+        
+        // Stack영역의 member라는 0*100번지 주소의 참조변수 한개와, Heap영역에 Array type 1개, Object type 3개가 연결되는건가?
+
+        //변수는 Stack영역? 값은 Heap영역?
+
+
+        
+        
+        
+
+    </script>
+</body>
+</html>

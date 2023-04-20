@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_document2.html</title>
+    <style>
+        p {
+            color: blue;
+        }
+        .box{
+            width : 100px;
+            height: 100px;
+            background-color:  yellow;
+            cursor: pointer; 
+            /* transition: margin-left 0.4s linear; */ /* 일정하게 */
+            transition: margin-left 0.4s ease-out; /* 도착이 부드럽게*/
+        }
+    </style>
+</head>
+
+<body>
+    <h1>인라인 css 테스트</h1> <!-- 인라인이 더 우선순위다.-->
+    <p style="color: red; background-color: antiquewhite;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Autem sed dolorum accusantium totam quae vel, repudiandae, odio ut veritatis quas, cupiditate ducimus doloremque
+        sit qui in! Placeat blanditiis facere sapiente.</p>
+        <div class="box" onclick="f();"></div> <!-- onclick이 버튼만의 속성이 아니였다! 그렇다면 모든 요소는 어떤 태그든지 사용될 수 있다.-->
+
+
+    <!-- style.background-color가 아닌 style.backgroundcolor로 접근-->
+
+    <!-- document.querySelector("p").style.color = "blue";
+'blue'
+document.querySelector("p").style.backgroundColor = "green";
+'green'
+document.querySelector("p").style.display = "none"; // 사라짐
+
+document.querySelector("p").style.display = "block"; // 다시 생김
+'block'
+document.querySelector("p").style.fontSize = "50px"; // 글자 크기
+-->
+
+<script>
+    let f = function() {
+        document.querySelector("div").style.marginLeft = "100px";
+    }
+</script>
+
+</body>
+
+</html>

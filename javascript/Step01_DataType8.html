@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_DataType9.html</title>
+</head>
+<body>
+    <h1>javscript 데이터 type</h1>
+    <p><strong>function</strong> 의 리턴 type 확인</p>
+
+    <script>
+        // undefined를 리턴하는 함수
+       function test() {
+             console.log("test() 호출됨");
+        }
+
+        //number type을 리턴하는 함수
+        function getNum() {
+            console.log("getNum() 호출됨");
+            return 999;
+        }
+
+        // string type을 리턴하는 함수
+        function getName() {
+            console.log("getName() 호출됨");
+            return "CHO IK JUNE";
+        }
+
+        // boolean type을 리턴하는 함수
+        function isEven() {
+            console.log("isEven() 호출됨");
+            return true;
+        }
+
+        function getNum2() {
+            let num = 999;
+            console.log("getNum2() 호출됨");
+            //변수 안에 있는 값을 변수명으로 리턴해 줄 있다.
+            return num;
+        }
+
+        function getName2() {
+            let name = "CHO IK JUNE";
+            console.log("getName2() 호출됨");
+            return name;
+        }
+
+        // object type을 리턴하는 함수
+        function getMember() {
+            let mem = {num: 1, name: "조익준", addr: "용인시"};
+            return mem;
+        }
+
+        //array type을 리턴하는 함수
+        function getFriends() {
+            let friends = ["히히", "주뎅이", "눈사람",];
+            return friends;
+        }
+
+        let myObj = {
+            getData:function() { // value로 function() {}이 들어온것, myObj.getData는 참조이고 myObj.getData()는 함수호출이다. 
+                let data = {num: 1, name: "조익준"};
+                return data;
+            },
+            getDatas:function() {
+                let datas = ["라면", "치킨", "피자"];
+                return datas;
+            }
+        };
+
+        let a = function() {}; // a == function type
+
+        // document. // let document = {};
+        // document.querySelector // let document = {querySelector : };
+        // document.querySelector() // let document = {querySelector : function(){}};
+        // document.querySelector(). // let document = {querySelector : function(){
+                                                            // return {}
+                                                            //  }
+                                                            //};
+         // document.querySelector().innerText // let document = {querySelector : function(){
+                                                            // return {innerText: };
+                                                            //  }
+                                                            //};
+    </script>
+</body>
+</html>

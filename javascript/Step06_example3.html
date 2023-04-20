@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step06_example3.html</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            background-color: yellow;
+            cursor: pointer;
+            transition: margin-left 0.4s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">div1</div>
+    <div class="box">div2</div>
+    <div class="box">div3</div>
+    <div class="box">div4</div>
+    <div class="box">div5</div>
+
+    <script>
+        // 전체 박스에 click속성을 부여하면서 내부 함수에 클릭시 움직이는 문까지 작성해야한다.
+
+        // let divs = document.querySelectorAll(".box"); // 배열에 담는다
+        // let mLeft = 0;
+        // let count = [0, 0, 0 ,0, 0];
+        // for(let i=0; i<divs.length; i++) {
+        //     document.querySelectorAll(".box")[i].addEventListener("click", function(e) {
+        //         count[i] += 1;
+
+        //         e.target.style.marginLeft = mLeft + count[i] * 100 + "px";
+        //         console.log(e);
+        //     });
+        // } 형 방법
+
+        
+        // let divs = document.querySelectorAll(".box");
+        
+        // for(let i=0; i<divs.length; i++) {
+        //     let mLeft = 0;
+        //     divs[i].addEventListener("click", (e) => {
+        //         mLeft += 100;
+        //         e.target.style.marginLeft = mLeft + "px";
+        //     });
+        // } //강사님 방법
+
+        
+        //함수를 만들자마자 바로 호출하기
+        (function(){
+            let divs = document.querySelectorAll(".box");
+        
+        for(let i=0; i<divs.length; i++) {
+            let mLeft = 0;
+            divs[i].addEventListener("click", (e) => {
+                mLeft += 100;
+                e.target.style.marginLeft = mLeft + "px";
+            });
+        }
+        })();
+
+
+    </script>
+</body>
+
+</html>
