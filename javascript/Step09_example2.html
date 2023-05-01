@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>스탑워치 만들어보기</h1>
+    <p>
+        <strong id="min">0</strong>
+        <strong id="sec">0</strong>
+        <strong id="msec">0</strong>
+    </p>
+    <button id="startBtn">시작</button>
+    <button id="resetBtn">재설정</button>
+
+    <script>
+
+        let min = 0, sec = 0, msec = 0;
+        // 상태값을 관리할 변수를 만들고 초기상태값 대입하기
+        let isStarted = false;
+
+        document.querySelector("#startBtn").addEventListener("click", (e) => {
+
+            //강사님 방법
+            if (isStarted == false) {
+                isStarted = true;
+                e.target.innerText = "중단";
+            }
+            else {
+                isStarted = false;
+                e.target.innerText = "시작";
+            }
+
+            // 내 방법
+            // if (e.target.innerText == "시작") {
+            //     e.target.innerText = "중단";
+            // }
+            // else {
+            //     e.target.innerText = "시작";
+            // }
+        });
+
+
+        setInterval(() => {
+            //만일 시작된 상태가 아니라면 함수를 여기서 종료하기
+            if (isStarted == false) {
+                return;
+            }
+            msec++;
+            if (msec == 100) {
+                sec++;
+                msec = 0;
+            }
+            else if (sec == 60) {
+                min++;
+                sec = 0;
+            }
+            document.querySelector("#msec").innerText = msec;
+            document.querySelector("#sec").innerText = sec;
+            document.querySelector("#min").innerText = min;
+        }, 10);
+
+        //재설정을 누르면 분,초,m초가 다 0으로 리셋
+
+        document.querySelector("#resetBtn").addEventListener("click", () => {
+            //시작버튼이 innerText일떄만 리셋 버튼 기능하도록
+            let a = document.querySelector("#startBtn");
+            if(a.innerText=="시작") {
+                min = 0; sec = 0; msec = 0;
+
+            document.querySelector("#msec").innerText = msec;
+            document.querySelector("#sec").innerText = sec;
+            document.querySelector("#min").innerText = min;
+            }
+            else{
+                return;
+            }
+        });
+    </script>
+</body>
+
+</html>
